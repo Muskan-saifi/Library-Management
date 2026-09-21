@@ -4,7 +4,10 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-export default function IssueReturn({ books = [], onToggle }) {
+export default function IssueReturn({
+  books = [],
+  onIssueReturn
+}) {
   const issuedBooks = books.filter((book) => !book.available);
 
   return (
@@ -25,50 +28,68 @@ export default function IssueReturn({ books = [], onToggle }) {
         </div>
       </div>
 
-      <div className="panel">
+      <div className="panel issuePanel">
+
         <div className="panelHead">
           <div>
             <h3>Currently Issued Books</h3>
+
             <p>
               {issuedBooks.length} book
-              {issuedBooks.length !== 1 ? "s" : ""} currently issued
+              {issuedBooks.length !== 1 ? "s" : ""}
+              {" "}currently issued
             </p>
           </div>
         </div>
 
         {issuedBooks.length > 0 ? (
           <div className="issueList">
-            {issuedBooks.map((book) => (
-              <div className="issueItem" key={book.id}>
 
-                <img
-                  src={book.cover}
-                  alt={book.title}
-                />
+            {issuedBooks.map((book, index) => (
+              <div
+                className="issueItem"
+                key={book.id}
+                style={{
+                  animationDelay: `${index * 80}ms`
+                }}
+              >
+
+                <div className="issueCover">
+                  <img
+                    src={book.cover}
+                    alt={`${book.title} cover`}
+                  />
+                </div>
 
                 <div className="issueInfo">
-                  <b>{book.title}</b>
-                  <span>{book.author}</span>
 
-                  <small>
+                  <h3>{book.title}</h3>
+
+                  <p>By {book.author}</p>
+
+                  <div className="issueStatus">
                     <span className="issuedDot"></span>
                     Currently Issued
-                  </small>
+                  </div>
+
                 </div>
 
                 <button
                   className="returnButton"
-                  onClick={() => onToggle(book.id)}
+                  onClick={() => onIssueReturn(book.id)}
                 >
                   <RotateCcw size={15} />
-                  Return Book
+                  <span>Return Book</span>
                 </button>
 
               </div>
             ))}
+
           </div>
         ) : (
+
           <div className="noIssuedBooks">
+
             <div className="successIcon">
               <CheckCircle2 size={28} />
             </div>
@@ -78,8 +99,11 @@ export default function IssueReturn({ books = [], onToggle }) {
             <p>
               All books are available in the library.
             </p>
+
           </div>
+
         )}
+
       </div>
 
     </section>
