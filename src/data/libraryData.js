@@ -1,10 +1,17 @@
+import id1 from "../assets/atomic-habits.svg"
+import id2 from "../assets/the-alchemist.svg"
+import id3 from "../assets/rich-dad.svg"
+import id4 from "../assets/ikigai.svg"
+import id5 from "../assets/deep-work.svg"
+import id6 from "../assets/think-again.svg"
+
 export const books = [
-  { id: 1, title: "Atomic Habits", author: "James Clear", category: "Self Growth", available: true, cover: "/src/assets/atomic-habits.svg" },
-  { id: 2, title: "The Alchemist", author: "Paulo Coelho", category: "Fiction", available: false, cover: "/src/assets/the-alchemist.svg" },
-  { id: 3, title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", category: "Finance", available: true, cover: "/src/assets/rich-dad.svg" },
-  { id: 4, title: "Ikigai", author: "Héctor García", category: "Lifestyle", available: true, cover: "/src/assets/ikigai.svg" },
-  { id: 5, title: "Deep Work", author: "Cal Newport", category: "Productivity", available: false, cover: "/src/assets/deep-work.svg" },
-  { id: 6, title: "Think Again", author: "Adam Grant", category: "Psychology", available: true, cover: "/src/assets/think-again.svg" }
+  { id: 1, title: "Atomic Habits", author: "James Clear", category: "Self Growth", available: true, cover: id1 },
+  { id: 2, title: "The Alchemist", author: "Paulo Coelho", category: "Fiction", available: false, cover: id2 },
+  { id: 3, title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", category: "Finance", available: true, cover: id3 },
+  { id: 4, title: "Ikigai", author: "Héctor García", category: "Lifestyle", available: true, cover: id4 },
+  { id: 5, title: "Deep Work", author: "Cal Newport", category: "Productivity", available: false, cover: id5 },
+  { id: 6, title: "Think Again", author: "Adam Grant", category: "Psychology", available: true, cover: id6 }
 ];
 
 export const members = [
